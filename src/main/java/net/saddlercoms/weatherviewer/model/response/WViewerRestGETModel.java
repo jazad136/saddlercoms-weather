@@ -8,18 +8,20 @@ public class WViewerRestGETModel {
 	private String mainForecast;
 	private String description;
 	private Double temperature;
+	private Double windSpeed;
 	private Double feelsLike;
 	private Long weatherTimeUTC;
 	private LocalDateTime weatherTimeJavaDT;
 
 	public WViewerRestGETModel() {  }
 
-	public WViewerRestGETModel(WeatherResponse response, Long weatherTimeUTC, LocalDateTime weatherTimeJavaDT) { 
+	public WViewerRestGETModel(WeatherResponse response, LocalDateTime weatherTimeJavaDT) { 
 		this.temperature = response.getMain().getTemp();
 		this.feelsLike = response.getMain().getFeelsLike();
 		this.mainForecast = response.getWeather().get(0).getMain();
 		this.description = response.getWeather().get(0).getDescription();
-		this.weatherTimeUTC = weatherTimeUTC;
+		this.windSpeed = response.getWind().getSpeed();
+		this.weatherTimeUTC = response.getDt();
 		this.weatherTimeJavaDT = weatherTimeJavaDT;			      
 	}
 	
@@ -32,6 +34,9 @@ public class WViewerRestGETModel {
 	@JsonProperty("temp") public Double getTemperature() { return temperature; }
 	@JsonProperty("temp") public void setTemperature(Double value) { this.temperature = value; }
 
+	@JsonProperty("windSpeed") public Double getWindSpeed() { return windSpeed; } 
+	@JsonProperty("windSpeed") public void setWindSpeed(Double value) { this.windSpeed = value; } 
+	
 	@JsonProperty("feelsLike") public Double getFeelsLike() { return feelsLike; }
 	@JsonProperty("feelsLike") public void setFeelsLike(Double value) { this.feelsLike = value; }
 

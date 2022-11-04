@@ -2,19 +2,13 @@ package net.saddlercoms.weatherviewer.model;
 
 public class WeatherType {
 	
-	/** Weather condition id
-	 *  e.g. 800
-	 */ 
+	/** Weather condition id e.g. 800 */ 
 	private Integer id;
-	/**
-	 * Group of weather parameters (Rain, Snow, Extreme etc.)
-	 * e.g. "Clear"
-	 */
+	
+	/** Group of weather parameters (Rain, Snow, Extreme etc.) e.g. "Clear" */
 	private String main;
-	/**
-	 * Weather condition within the group. 
-	 * e.g. "clear sky"
-	 */ 
+	
+	/** Weather condition within the group.  e.g. "clear sky" */ 
 	private String description;
 	
 	public WeatherType() { }
@@ -42,6 +36,11 @@ public class WeatherType {
 	@Override
 	public String toString() {
 		return "Weather [id=" + id + ", main=" + main + ", description=" + description + "]";
+	}
+
+	public Object getWind() {
+		// TODO Auto-generated method stub
+		return null;
 	} 
 	
 	
