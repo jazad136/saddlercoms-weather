@@ -30,7 +30,7 @@ public class MainType {
 	
 	@Override
 	public String toString() {
-		return "MainType [temp=" + temp 
+		return "Main [temp=" + temp 
 				+ ", feels_like=" + feels_like 
 				+ ", temp_min=" + temp_min 
 				+ ", temp_max=" + temp_max + 

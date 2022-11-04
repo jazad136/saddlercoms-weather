@@ -41,7 +41,7 @@ public class WeatherType {
 
 	@Override
 	public String toString() {
-		return "WeatherType [id=" + id + ", main=" + main + ", description=" + description + "]";
+		return "Weather [id=" + id + ", main=" + main + ", description=" + description + "]";
 	} 
 	
 	
