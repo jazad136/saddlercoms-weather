@@ -1,0 +1,38 @@
+Weather Map has these types in this order:
+1. coord: complextype
+2. weather: complextype
+3. base: a basic String
+4. main: complextype
+Inside Main Complex type:
+  1. temp: a simple double
+  2. feels_like: a basic double
+  3. temp_min: a basic double
+  4. temp_max: a basic double
+  5. pressure: an integer
+  6. humidity:  an integer
+5. visibility: a long integer
+
+6. wind: complextype
+
+  Inside Wind Complex Type:
+  1. speed: a basic double 
+  2. deg: an integer
+  3. (gust): (does not exist)
+
+7. clouds: complex
+Inside Clouds complex type: 
+1. all: an integer (a percentage between 0 and 100 integral) 
+
+8. dt: a long integer
+9. sys: complex 
+Inside SysType: 
+1. type: an integer
+2. id:  an integer
+3. country: a basic String
+4. sunrise: a long integer
+5. sunset:  a long integer
+10. timezone: a long integer (signed) 
+11. id: an integer (city ID, useful) 
+12: name: a basic String (useful) 
+13: cod: an integer (not needed)
+

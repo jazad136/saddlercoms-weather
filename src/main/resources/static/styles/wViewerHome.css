@@ -1,0 +1,15 @@
+.frcImage img {
+	height: 100px;
+	width: 100px;
+}
+
+.wViewer { 
+	width: 70%;
+}
+/*.wViewer { 
+	font-size: .9em;
+}*/
+
+.borders-on .column {
+	border: thin solid black;
+}

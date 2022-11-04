@@ -1,0 +1,83 @@
+<html xmlns:th="http://wwww.thymeleaf.org">
+<head>
+	<title>Weather App - by Jack Saddler, Ph. D.</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link th:href="@{/styles/semantic.min.css}" rel="stylesheet" />
+    <link th:href="@{/styles/universal.css}" rel="stylesheet"/>
+    
+    <link th:href="@{/styles/wViewerHome.css}" rel="stylesheet"/>
+</head>
+<body>
+<!-- Make sure you add ui to the classes list of the grid tag-->
+<div class="ui container">
+  <div class="wViewer ui two column grid">
+  	<div class="sixteen wide column">
+      <div class="wa1">
+        <h2>
+          Weather App
+        </h2>
+      </div>
+    </div>
+    <div class="sixteen wide column">
+      <div class="wa2">
+      	<div class="frcImage">
+      	  <img th:src="@{/images/sun-solid.svg}" alt="Weather Logo"/>
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <div class="wa3">
+        <div class="ui two column grid">
+          <div class="column">
+            <div class="tempLbl">
+              <h3>
+                Temperature:
+              </h3>
+            </div>
+          </div>
+          <div class="column">
+            <div class="temp">
+              <h3>
+                temp
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <div class="wb3">
+        <div class="ui two column grid">
+          <div class="column">
+            <div class="feelsLbl">
+              <h3>Feels Like:</h3>
+            </div>
+          </div>
+          <div class="column">
+            <div class="feels">
+              <h3>feels_like</h3>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
+    <div class="sixteen wide column">
+      <div class="wa4">
+        <div class="timeLbl">
+          <h3>Time of Forecast</h3>
+        </div>
+        <div class="frcTime">
+        	<h3>time</h3>
+        </div>
+      </div>
+    </div>
+    <div class="sixteen wide column">
+      <div class="wc">
+      	<div class="myname">
+          <h3>by Jonathan A. Saddler, Ph. D.</h3>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</body></html>
