@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.saddlercoms.weatherviewer.model.response.WViewerViewModel;
 import net.saddlercoms.weatherviewer.model.response.WeatherResponse;
-import net.saddlercoms.weatherviewer.service.WViewerService;
+import net.saddlercoms.weatherviewer.service.WeatherService;
 
 @Controller
 @RequestMapping("/browser")
 public class WViewerViewController {
 //	private RestTemplate restTemplate;
-	WViewerService weatherService;
+	WeatherService weatherService;
 	
-	public WViewerViewController(WViewerService service) { 
+	public WViewerViewController(WeatherService service) { 
 		this.weatherService = service;
 	}
 	
@@ -33,16 +33,17 @@ public class WViewerViewController {
 	@GetMapping()
 	public String index(Model model) { 
 		// https://stackoverflow.com/questions/535004/unix-epoch-time-to-java-date-object
-		WeatherResponse nowResponse = weatherService.getNowWeatherResponse();
+		WeatherResponse nowResponse = weatherService.getCurrentWeather();
 		String main = nowResponse.getWeather().get(0).getMain();
 		String description = nowResponse.getWeather().get(0).getDescription();
 		Double temperature = nowResponse.getMain().getTemp();
+		Double windSpeed = nowResponse.getWind().getSpeed();
 		Double feelsLike = nowResponse.getMain().getFeelsLike();
 		Long weatherTimeUTC = nowResponse.getDt();
 		LocalDateTime weatherTime = getJavaDT(nowResponse);
 //		String weatherTimeString = weatherTime.format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss"));
 		String weatherTimeString = weatherTime.format(DateTimeFormatter.ofPattern("MMM. dd, uuuu, h:mm a 'Eastern'"));
-		WViewerViewModel weaMod = new WViewerViewModel(main, description, temperature, feelsLike, weatherTimeUTC, weatherTime);
+		WViewerViewModel weaMod = new WViewerViewModel(main, description, temperature, windSpeed, feelsLike, weatherTimeUTC, weatherTime);
 		model.addAttribute("weamod", weaMod);
 //		model.addAttribute("tempStr", weaMod.getTemperature() + " degrees F");
 //		model.addAttribute("feelsLikeStr", weaMod.getFeelsLike() + " degrees F");
