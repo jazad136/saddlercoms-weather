@@ -17,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import net.saddlercoms.weatherviewer.model.response.PingResponse;
+import net.saddlercoms.weatherviewer.model.response.WViewerRestGETModel;
 import net.saddlercoms.weatherviewer.model.response.WeatherResponse;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -53,9 +54,10 @@ class WeatherVControllerTests {
 
 	@Test
 	public void test_weatherResponseIsSuccessful() { 
-		ResponseEntity<WeatherResponse> weatherResponse = testRestTemplate.getForEntity("/", WeatherResponse.class);
+		ResponseEntity<WViewerRestGETModel> weatherResponse = testRestTemplate.getForEntity("/", WViewerRestGETModel.class);
 		assertThat(weatherResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
-		assertThat(weatherResponse.getBody()).isExactlyInstanceOf(WeatherResponse.class);
+		assertThat(weatherResponse.getBody()).isExactlyInstanceOf(WViewerRestGETModel.class);
+		assertThat(weatherResponse.getBody().getTemperature()).isNotNull();
 		LOG.warn(weatherResponse.getBody().toString());
 	}
 }

@@ -8,6 +8,7 @@ public class WViewerViewModel {
 	private String mainForecast;
 	private String description;
 	private Double temperature;
+	private Double windSpeed;
 	private Double feelsLike;
 	private Long weatherTimeUTC;
 	private LocalDateTime weatherTimeJavaDT;
@@ -18,11 +19,12 @@ public class WViewerViewModel {
 		this.temperature = temperature;
 		this.feelsLike = feelsLike;
 		this.weatherTimeUTC = weatherTimeUTC;
-		this.weatherTimeJavaDT = weatherTimeJavaDT;			      
+		this.weatherTimeJavaDT = weatherTimeJavaDT;		      
 	}
 	
-	public WViewerViewModel(String main, String description, Double temperature, Double feelsLike, Long weatherTimeUTC, LocalDateTime weatherTimeJavaDT) { 
+	public WViewerViewModel(String main, String description, Double temperature, Double windSpeed, Double feelsLike, Long weatherTimeUTC, LocalDateTime weatherTimeJavaDT) { 
 		this.temperature = temperature;
+		this.windSpeed = windSpeed;
 		this.feelsLike = feelsLike;
 		this.mainForecast = main;
 		this.description = description;
@@ -39,6 +41,9 @@ public class WViewerViewModel {
 	public Double getTemperature() { return temperature; }
 	public void setTemperature(Double value) { this.temperature = value; }
 
+	public Double getWindSpeed() { return windSpeed; } 
+	public void setWindSpeed(Double value) { this.windSpeed = value; } 
+	
 	public Double getFeelsLike() { return feelsLike; }
 	public void setFeelsLike(Double value) { this.feelsLike = value; }
 
