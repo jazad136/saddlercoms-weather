@@ -17,7 +17,7 @@ Inside Main Complex type:
   Inside Wind Complex Type:
   1. speed: a basic double 
   2. deg: an integer
-  3. (gust): (does not exist)
+  3. (gust): (does not exist) (a simple double)
 
 7. clouds: complex
 Inside Clouds complex type: 
