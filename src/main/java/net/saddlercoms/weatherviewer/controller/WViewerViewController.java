@@ -32,7 +32,6 @@ public class WViewerViewController {
 	}
 	@GetMapping()
 	public String index(Model model) { 
-		// https://stackoverflow.com/questions/535004/unix-epoch-time-to-java-date-object
 		WeatherResponse nowResponse = weatherService.getCurrentWeather();
 		String main = nowResponse.getWeather().get(0).getMain();
 		String description = nowResponse.getWeather().get(0).getDescription();
@@ -52,10 +51,11 @@ public class WViewerViewController {
 	}
 	
 	private LocalDateTime getJavaDT(WeatherResponse nowResponse) { 
+		// https://stackoverflow.com/questions/535004/unix-epoch-time-to-java-date-object
 		long epoch = nowResponse.getDt();
 		Instant instant = Instant.ofEpochSecond(epoch);
 		ZonedDateTime utcDate = ZonedDateTime.ofInstant(instant, ZoneOffset.UTC);
-		//https://stackoverflow.com/questions/42280454/changing-localdatetime-based-on-time-difference-in-current-time-zone-vs-eastern
+		// https://stackoverflow.com/questions/42280454/changing-localdatetime-based-on-time-difference-in-current-time-zone-vs-eastern
 		ZoneId newZone = ZoneId.of("America/New_York");	
 		ZonedDateTime easternDate = utcDate.withZoneSameInstant(newZone);
 		return easternDate.toLocalDateTime();
