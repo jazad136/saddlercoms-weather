@@ -33,7 +33,8 @@ public class WViewerRestController {
 	@ResponseStatus(HttpStatus.OK)
 	public WViewerRestGETModel getTranslatedWeather() {
 		WeatherResponse currentWeather = weatherService.getCurrentWeather();
-		return new WViewerRestGETModel(currentWeather, weatherService.getJavaDT(currentWeather));
+		WViewerRestGETModel model = weatherService.setupRestObject(currentWeather);
+		return model;
 	}
 	
 }

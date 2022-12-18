@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import net.saddlercoms.weatherviewer.config.WeatherViewerConfig;
+import net.saddlercoms.weatherviewer.model.response.WViewerRestGETModel;
 import net.saddlercoms.weatherviewer.model.response.WeatherResponse;
 
 @Service
@@ -41,5 +42,16 @@ public class WeatherService {
 		ZoneId newZone = ZoneId.of("America/New_York");	
 		ZonedDateTime easternDate = utcDate.withZoneSameInstant(newZone);
 		return easternDate.toLocalDateTime();
+	}
+	public WViewerRestGETModel setupRestObject(WeatherResponse response) { 
+		WViewerRestGETModel getModel = new WViewerRestGETModel();
+		getModel.setTemperature(response.getMain().getTemp());
+		getModel.setFeelsLike(response.getMain().getFeelsLike());
+		getModel.setMainForecast(response.getWeather().get(0).getMain());
+		getModel.setDescription(response.getWeather().get(0).getDescription());
+		getModel.setWindSpeed(response.getWind().getSpeed());
+		getModel.setWeatherTimeUTC(response.getDt());
+		getModel.setWeatherTimeJavaDT(getJavaDT(response));
+		return getModel;
 	}
 }
