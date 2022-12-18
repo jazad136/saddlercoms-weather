@@ -20,19 +20,28 @@ Inside Main Complex type:
   3. (gust): (does not exist) (a simple double)
 
 7. clouds: complex
+8. rain: complex
+Inside Rain Complex Type
+  1h: 1-hour concentration record of rain. 
+  3h: 3-hour concentration record of rain. 
+9. snow: complex
+Inside Snow Complex Type
+  1h: 1-hour concentration record of snow.
+  3h: 3-hour concentration record of snow. 
+
 Inside Clouds complex type: 
 1. all: an integer (a percentage between 0 and 100 integral) 
 
-8. dt: a long integer
-9. sys: complex 
+10. dt: a long integer
+11. sys: complex 
 Inside SysType: 
 1. type: an integer
 2. id:  an integer
 3. country: a basic String
 4. sunrise: a long integer
 5. sunset:  a long integer
-10. timezone: a long integer (signed) 
-11. id: an integer (city ID, useful) 
-12: name: a basic String (useful) 
-13: cod: an integer (not needed)
+12. timezone: a long integer (signed) 
+13. id: an integer (city ID, useful) 
+14: name: a basic String (useful) 
+15: cod: an integer (not needed)
 
